@@ -15,6 +15,7 @@ class App extends Component {
     }
 
     this._handleKeyPress = this._handleKeyPress.bind(this)
+    this._markTaskAsDone = this._markTaskAsDone.bind(this)
   }
 
   render () {
@@ -22,7 +23,9 @@ class App extends Component {
       <div>
         <input type="text" onKeyPress={this._handleKeyPress} />
         <h3>TODO</h3>
-        <TasksList tasks={this._filterTasksTodo()} />
+        <TasksList
+          tasks={this._filterTasksTodo()} 
+          markTaskAsDone={this._markTaskAsDone}/>
 
         <h3>DONE</h3>
         <TasksList tasks={this._filterTasksDone()} />
@@ -51,6 +54,14 @@ class App extends Component {
     this.setState({tasks: tasks})
 
     e.target.value = ''
+  }
+
+  _markTaskAsDone (id) {
+    const tasks = this.state.tasks.slice()
+    const task = tasks.find(task => task.id === id)
+    task.isDone = true
+
+    this.setState({tasks: tasks})
   }
 }
 

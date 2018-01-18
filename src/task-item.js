@@ -16,9 +16,13 @@ export default class TaskItem extends React.Component {
   _renderTodo () {
     return (
         <div>
-          <span role="img" aria-label="Mark as done">✅</span> 
+          <span role="img" aria-label="Mark as done" onClick={this._handleOnClick.bind(this)}>✅</span> 
           {this.props.description}
         </div>
     )
+  }
+
+  _handleOnClick () {
+    this.props.onTickClick(this.props.id)
   }
 }
