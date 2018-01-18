@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TaskItem from './task-item'
+import TasksList from './tasks-list'
 
 class App extends Component {
   constructor (props) {
@@ -10,24 +10,21 @@ class App extends Component {
       tasks: [
         {description: 'First thing', isDone: false },
         {description: 'Second thing', isDone: false },
-        {description: 'Thids thing', isDone: true }
+        {description: 'Third thing', isDone: true }
       ]
     }
 
   }
 
-  render() {
+  render () {
     return (
       <div>
         <input type="text" />
         <h3>TODO</h3>
-        <div>
-          {this._filterTasksTodo().map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
-        </div>
+        <TasksList tasks={this._filterTasksTodo()} />
+
         <h3>DONE</h3>
-        <div>
-          {this._filterTasksDone().map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
-        </div>
+        <TasksList tasks={this._filterTasksDone()} />
       </div>
     );
   }
