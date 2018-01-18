@@ -8,9 +8,9 @@ class App extends Component {
 
     this.state = {
       tasks: [
-        {description: 'First thing', isDone: false },
-        {description: 'Second thing', isDone: false },
-        {description: 'Third thing', isDone: true }
+        {id: 1, description: 'First thing', isDone: false },
+        {id: 2, description: 'Second thing', isDone: false },
+        {id: 3, description: 'Third thing', isDone: true }
       ]
     }
 
