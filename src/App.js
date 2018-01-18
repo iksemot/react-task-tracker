@@ -14,12 +14,13 @@ class App extends Component {
       ]
     }
 
+    this._handleKeyPress = this._handleKeyPress.bind(this)
   }
 
   render () {
     return (
       <div>
-        <input type="text" />
+        <input type="text" onKeyPress={this._handleKeyPress} />
         <h3>TODO</h3>
         <TasksList tasks={this._filterTasksTodo()} />
 
@@ -35,6 +36,21 @@ class App extends Component {
 
   _filterTasksTodo () {
     return this.state.tasks.filter(task => task.isDone === false)
+  }
+
+  _handleKeyPress (e) {
+    if (e.key.toLowerCase() !== 'enter') return
+    
+    const tasks = this.state.tasks.slice()
+    tasks.push({
+      id: this.state.tasks.length+1, 
+      description: e.target.value,
+      isDone: false
+    })
+
+    this.setState({tasks: tasks})
+
+    e.target.value = ''
   }
 }
 
