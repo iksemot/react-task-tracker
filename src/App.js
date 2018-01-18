@@ -9,12 +9,12 @@ class App extends Component {
         <input type="text" />
         <h3>TODO</h3>
         <div>
-          <TaskItem description="First thing" />
-          <TaskItem description="Second thing" />
+          <TaskItem description="First thing" isDone={false} />
+          <TaskItem description="Second thing" isDone={false} />
         </div>
         <h3>DONE</h3>
         <div>
-          <TaskItem description="Third thing done" />
+          <TaskItem description="Third thing done" isDone={true} />
         </div>
       </div>
     );
