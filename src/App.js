@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <input type="text" />
+        <h3>TODO</h3>
+        <div>
+          <div><span role="img" aria-label="Mark as done">✅</span>  First thing to do</div>
+          <div><span role="img" aria-label="Mark as done">✅</span> Second thing to do</div>
+        </div>
+        <h3>DONE</h3>
+        <div>
+          <div>Third thing done</div>
+        </div>
       </div>
     );
   }
