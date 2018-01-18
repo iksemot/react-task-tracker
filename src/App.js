@@ -22,14 +22,22 @@ class App extends Component {
         <input type="text" />
         <h3>TODO</h3>
         <div>
-          {this.state.tasks.map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
+          {this._filterTasksTodo().map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
         </div>
         <h3>DONE</h3>
         <div>
-          {this.state.tasks.map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
+          {this._filterTasksDone().map(task => <TaskItem description={task.description} isDone={task.isDone} />)}
         </div>
       </div>
     );
+  }
+
+  _filterTasksDone () {
+    return this.state.tasks.filter(task => task.isDone === true)
+  }
+
+  _filterTasksTodo () {
+    return this.state.tasks.filter(task => task.isDone === false)
   }
 }
 
