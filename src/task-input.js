@@ -5,11 +5,13 @@ export default class TaskInput extends React.Component {
     super(props)
 
     this._handleKeyPress = this._handleKeyPress.bind(this)
+    this._handleClick = this._handleClick.bind(this)
   }
   render () {
     return (
       <div>
-        <input type="text" onKeyPress={this._handleKeyPress} />
+        <input type="text" onKeyPress={this._handleKeyPress} ref={input => this._input = input}/>
+        <button onClick={this._handleClick}>Add</button>
       </div>
     )
   }
@@ -19,5 +21,9 @@ export default class TaskInput extends React.Component {
     
     this.props.afterKeyPress(e.target.value)
     e.target.value = ''
+  }
+
+  _handleClick (e) {
+    this.props.afterClick(this._input.value)
   }
 }

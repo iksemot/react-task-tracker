@@ -21,7 +21,8 @@ class App extends Component {
     return (
       <div>
         <TaskInput
-          afterKeyPress={this._addNewTask} />
+          afterKeyPress={this._addNewTask} 
+          afterClick={this._addNewTask} />
 
         <h3>TODO</h3>
         <TasksList
