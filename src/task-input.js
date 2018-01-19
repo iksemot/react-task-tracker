@@ -1,4 +1,5 @@
 import React from 'react';
+import './task-input.css';
 
 export default class TaskInput extends React.Component {
   constructor (props) {
@@ -9,7 +10,7 @@ export default class TaskInput extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div className='task-input'>
         <input type="text" onKeyPress={this._handleKeyPress} ref={input => this._input = input}/>
         <button onClick={this._handleClick}>Add</button>
       </div>

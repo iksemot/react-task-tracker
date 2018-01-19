@@ -1,0 +1,8 @@
+.task-item {
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+}
+
+.task-item > span[role=img] {
+  margin-right: 10px;
+}

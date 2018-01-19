@@ -19,7 +19,7 @@ class App extends Component {
 
   render () {
     return (
-      <div>
+      <div className='app'>
         <TaskInput
           afterKeyPress={this._addNewTask} 
           afterClick={this._addNewTask} />

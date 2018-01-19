@@ -1,4 +1,6 @@
 import React from 'react';
+import './task-item.css'
+
 
 export default class TaskItem extends React.Component {
   render() {
@@ -9,13 +11,13 @@ export default class TaskItem extends React.Component {
 
   _renderDone () {
     return (
-      <div>{this.props.description}</div>
+      <div className='task-item'>{this.props.description}</div>
     )
   }
 
   _renderTodo () {
     return (
-        <div>
+        <div className='task-item'>
           <span role="img" aria-label="Mark as done" onClick={this._handleOnClick.bind(this)}>✅</span> 
           {this.props.description}
         </div>
