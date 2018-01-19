@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import TasksList from './tasks-list'
+import MyLocalStorage from './my-local-storage'
 
 class App extends Component {
   constructor (props) {
     super(props)
 
+    this.myLocalStorage = new MyLocalStorage()
     this.state = {
-      tasks: [
-        {id: 1, description: 'First thing', isDone: false },
-        {id: 2, description: 'Second thing', isDone: false },
-        {id: 3, description: 'Third thing', isDone: true }
-      ]
+      tasks: this.myLocalStorage.get()
     }
 
     this._handleKeyPress = this._handleKeyPress.bind(this)
@@ -45,13 +43,15 @@ class App extends Component {
     if (e.key.toLowerCase() !== 'enter') return
     
     const tasks = this.state.tasks.slice()
-    tasks.push({
+    const task = {
       id: this.state.tasks.length+1, 
       description: e.target.value,
       isDone: false
-    })
+    }
+    tasks.push(task)
 
     this.setState({tasks: tasks})
+    this.myLocalStorage.set(task)
 
     e.target.value = ''
   }
@@ -62,6 +62,9 @@ class App extends Component {
     task.isDone = true
 
     this.setState({tasks: tasks})
+    this.myLocalStorage.set(id, {
+      isDone: true
+    })
   }
 }
 
